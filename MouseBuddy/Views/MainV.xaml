@@ -48,7 +48,9 @@
                 <TextBlock Padding="10" Text="{Binding Specs}"></TextBlock>
                 <CheckBox Margin="10 10 10 0" IsChecked="{Binding MS.DisableStickyCorners}" Content="Disable sticky corners"></CheckBox>
                 <CheckBox Margin="10 0 10 10" IsChecked="{Binding MS.RelativeScreenCrossing}" Content="Relative screen crossing"></CheckBox>
-
+                
+                <TextBlock Text="{Binding MS.MouseX}"></TextBlock>
+                <TextBlock Text="{Binding MS.MouseY}"></TextBlock>
             </StackPanel>
         </StackPanel>
 
