@@ -1,0 +1,56 @@
+﻿<Window
+    x:Class="MouseBuddy.Views.MainV"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:rsStandardComponents="clr-namespace:RS_StandardComponents;assembly=RS-StandardComponents"
+    MinWidth="200"
+    AllowsTransparency="True"
+    Background="{DynamicResource MaterialDesignPaper}"
+    DataContext="{Binding MainVM, Source={StaticResource Locator}}"
+    FontFamily="{materialDesign:MaterialDesignFont}"
+    KeyDown="wnd_KeyDown"
+    Language="{UICulture}"
+    Loaded="OnLoaded"
+    ResizeMode="CanResize"
+    ResxExtension.DefaultResxName="MouseBuddy.Views.Localization.Main"
+    Style="{StaticResource WindowStyle}"
+    TextElement.FontSize="16"
+    TextElement.FontWeight="Medium"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+    <Window.Icon>
+        <Binding Converter="{StaticResource ConvertMaterialDesignIconToIcon}">
+            <Binding.Source>
+                <materialDesign:PackIcon
+                    Width="256"
+                    Height="256"
+                    Foreground="WhiteSmoke"
+                    Kind="TestTube" />
+            </Binding.Source>
+        </Binding>
+    </Window.Icon>
+
+    <Grid>
+        <rsStandardComponents:TitlebarUserCtrl
+            Title="MouseBuddy Project Template"
+            Panel.ZIndex="1"
+            BoundWindow="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            CheckBeforeClose="True"
+            EnableClosable="True"
+            EnableMaximize="True"
+            EnableMinimize="True"
+            Icon="AcademicCap" />
+        <StackPanel Margin="0,30,0,0">
+
+            <StackPanel>
+                
+
+                <TextBlock Padding="10" Text="{Binding Specs}"></TextBlock>
+                <CheckBox Margin="10 10 10 0" IsChecked="{Binding MS.DisableStickyCorners}" Content="Disable sticky corners"></CheckBox>
+                <CheckBox Margin="10 0 10 10" IsChecked="{Binding MS.RelativeScreenCrossing}" Content="Relative screen crossing"></CheckBox>
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
